@@ -34,13 +34,15 @@ exports.createComplaint = async (req, res) => {
 
     } catch (error) {
 
-        console.error(error);
-
+        console.log("========== CREATE COMPLAINT ERROR ==========");
+        console.log(error);
+        console.log(error.message);
+        console.log(error.stack);
+    
         return res.status(500).json({
             success: false,
-            message: "Error while creating complaint",
+            message: error.message,
         });
-
     }
 };
 
