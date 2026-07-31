@@ -6,17 +6,16 @@ const AdminLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="bg-gray-100 min-h-screen">
 
       <AdminSidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
 
-      <main className="flex-1 overflow-y-auto">
+      <main className="lg:ml-64">
 
-        {/* Mobile Header */}
-        <div className="lg:hidden bg-white shadow-md p-4 flex items-center">
+        <div className="lg:hidden sticky top-0 z-30 bg-white shadow px-5 py-4 flex items-center">
 
           <button
             onClick={() => setSidebarOpen(true)}
@@ -25,13 +24,13 @@ const AdminLayout = ({ children }) => {
             <FaBars />
           </button>
 
-          <h1 className="ml-4 text-xl font-bold">
+          <h1 className="ml-4 font-bold text-lg">
             Civic Admin
           </h1>
 
         </div>
 
-        <div className="px-6 py-6 lg:px-12 lg:py-10">
+        <div className="p-6 lg:p-8">
           {children}
         </div>
 

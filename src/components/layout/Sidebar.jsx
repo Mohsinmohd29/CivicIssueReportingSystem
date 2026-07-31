@@ -52,17 +52,24 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     <>
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       <aside
-        className={`fixed lg:sticky top-0 left-0 z-50 w-72 h-screen bg-slate-900 text-white flex flex-col shadow-2xl transform transition-transform duration-300
+        className={`fixed top-0 left-0 z-50
+    w-72
+    h-screen
+    bg-slate-900
+    text-white
+    flex flex-col
+    transition-transform duration-300
     ${sidebarOpen
             ? "translate-x-0"
-            : "-translate-x-full lg:translate-x-0"
-          }`}
+            : "-translate-x-full"
+          }
+    lg:translate-x-0`}
       >
         {/* Logo */}
         <div className="px-8 py-8 border-b border-slate-700">
@@ -117,8 +124,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-5 py-6">
-
+        <nav className="flex-1 overflow-y-auto px-5 py-6">
+          
           <div className="space-y-3">
 
             {menuItems.map((item) => {
@@ -152,7 +159,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </nav>
 
         {/* Logout */}
-        <div className="p-5 border-t border-slate-700">
+        <div className="mt-auto p-5 border-t border-slate-700">
 
           <button
             onClick={() => {
